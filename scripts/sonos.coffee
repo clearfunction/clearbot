@@ -10,10 +10,12 @@
 #
 
 module.exports = (robot) ->
+  # PREAMBLE
   io = require('socket.io')(robot.server)
 
   robot.sonos_sockets = []
 
+  # MANAGE SOCKET.IO CONNECTED CLIENTS LIST
   io.on 'connection', (socket) ->
     console.log 'a user connected to socket'
 
@@ -27,14 +29,7 @@ module.exports = (robot) ->
     console.log "Forgetting #{oldSocket}"
     robot.sonos_sockets = robot.sonos_sockets.filter (socket) -> socket isnt oldSocket
 
-  robot.on 'sockets:connection', (socket) ->
-    console.log 'New connection to socket'
-    socket.on 'other event', (data) -> console.log data
-
-  robot.on 'sockets:disconnect', (oldSocket) ->
-    console.log "Forgetting #{oldSocket}"
-    robot.sonos_sockets = robot.sonos_sockets.filter (socket) -> socket isnt oldSocket
-
+  # EXPOSE SONOS TO HUBOT
   robot.playOnSonos = (url) ->
     console.log "Checking Sockets: #{robot.sonos_sockets}"
 
@@ -42,5 +37,6 @@ module.exports = (robot) ->
       console.log 'sonosing a message...'
       socket.emit 'play_url', url: url
 
+  # LISTEN FOR SONOS COMMANDS
   robot.respond /sonos (.+)/, (res) ->
     robot.playOnSonos res.match[1]
