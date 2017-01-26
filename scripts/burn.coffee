@@ -22,5 +22,5 @@ module.exports = (robot) ->
     robot.playOnSonos res.random(burns)
 
   robot.hear /yakety/, (res) ->
-    yaketySax = 'https://www.dropbox.com/s/1uw0a213cuh0ygi/yakkety.mp3?dl=0'
+    yaketySax = 'https://www.dropbox.com/s/1uw0a213cuh0ygi/yakkety.mp3?dl=1'
     robot.playOnSonos yaketySax
