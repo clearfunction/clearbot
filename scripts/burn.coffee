@@ -17,3 +17,6 @@ module.exports = (robot) ->
   robot.respond /burn/, (res) ->
     robot.playOnSonos res.random(burns)
     res.send ":fire: Burn! :fire:"
+
+  robot.hear /!sickburn/, (res) ->
+    robot.playOnSonos res.random(burns)
