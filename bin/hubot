@@ -5,6 +5,6 @@ set -e
 npm install
 export PATH="node_modules/.bin:node_modules/hubot/node_modules/.bin:$PATH"
 export HUBOT_SLACK_TOKEN="xoxb-133687460855-0cYj9MVPRZQul7hO9KLQqjs6"
-export EXPRESS_PORT=80
+#export EXPRESS_PORT=80
 
 exec node_modules/.bin/hubot --name "clearbot" "$@"
