@@ -34,7 +34,7 @@ module.exports = (robot) ->
     console.log "Checking Sockets: #{robot.sonos_sockets}"
 
     if robot.sonos_sockets.length < 1
-      res.respond "Sorry, I don't have any Sonos relay clients connected right now."
+      res.send "Sorry, I don't have any Sonos relay clients connected right now."
     else
       for socket in robot.sonos_sockets
         console.log 'sonosing a message...'
