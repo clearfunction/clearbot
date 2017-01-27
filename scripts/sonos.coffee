@@ -16,9 +16,19 @@ module.exports = (robot) ->
 
   robot.sonos_sockets = []
 
+  # HEALTH CHECK STUFF
+  clientCount = ->
+    robot.sonos_sockets.length
+ 
   logClientStats = (msg) ->
     console.log msg
-    console.log "\t#{robot.sonos_sockets.length} Sonos relay clients currently connected."
+    console.log "\t#{clientCount()} Sonos relay clients currently connected."
+
+  alertNoClients = (res) ->
+    res.reply "Sorry, I don't have any Sonos relay clients connected right now. You can download one here... #{RELAY_CLIENT_DOWNLOAD_URL}"
+    setTimeout () ->
+      res.reply "... Burn! :fire: http://i.imgur.com/4lhFLpO.gif"
+    , 3 * 1000
 
   # MANAGE SOCKET.IO CONNECTED CLIENTS LIST
   io.on 'connection', (socket) ->
@@ -32,18 +42,25 @@ module.exports = (robot) ->
 
   # EXPOSE SONOS TO HUBOT
   robot.playOnSonos = (url, res) ->
-    console.log "Checking Sockets: #{robot.sonos_sockets}"
-
-    if robot.sonos_sockets.length < 1
-      res.reply "Sorry, I don't have any Sonos relay clients connected right now. You can download one here... #{RELAY_CLIENT_DOWNLOAD_URL}"
-      setTimeout () ->
-        res.reply "... Burn!  :fire:"
-      , 3 * 1000
+    if clientCount() < 1
+      alertNoClients res
     else
-      for socket in robot.sonos_sockets
-        console.log 'sonosing a message...'
-        socket.emit 'play_url', url: url
+      console.log 'Sonosing a message to a random client...'
+      socket = res.random(robot.sonos_sockets)
+      socket.emit 'play_url', url: url
 
-  # LISTEN FOR SONOS COMMANDS
+
+  ##################
+  #
+  # CHAT TRIGGERS
+  #
+  ##################
+
   robot.respond /sonos (.+)/, (res) ->
     robot.playOnSonos res.match[1], res
+
+  robot.respond /sonos-health/, (res) ->
+    if clientCount() > 0
+      res.reply "I'm cool, I've got #{clientCount()} Sonos relay(s) connected."
+    else
+      alertNoClients res
