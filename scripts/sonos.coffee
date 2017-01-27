@@ -10,6 +10,7 @@
 #
 
 module.exports = (robot) ->
+  RELAY_CLIENT_DOWNLOAD_URL = "https://github.com/clearfunction/sonos_proxy_rb"
   # PREAMBLE
   io = require('socket.io')(robot.server)
 
@@ -34,7 +35,7 @@ module.exports = (robot) ->
     console.log "Checking Sockets: #{robot.sonos_sockets}"
 
     if robot.sonos_sockets.length < 1
-      res.send "Sorry, I don't have any Sonos relay clients connected right now."
+      res.send "Sorry, I don't have any Sonos relay clients connected right now. You can download one here: #{RELAY_CLIENT_DOWNLOAD_URL}"
     else
       for socket in robot.sonos_sockets
         console.log 'sonosing a message...'
