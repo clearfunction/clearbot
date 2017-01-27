@@ -15,12 +15,12 @@ module.exports = (robot) ->
   ]
 
   robot.respond /burn/, (res) ->
-    robot.playOnSonos res.random(burns)
+    robot.playOnSonos res.random(burns), res
     res.send ":fire: Burn! :fire:"
 
   robot.hear /!sickburn/, (res) ->
-    robot.playOnSonos res.random(burns)
+    robot.playOnSonos res.random(burns), res
 
   robot.hear /yakety/, (res) ->
     yaketySax = 'https://www.dropbox.com/s/1uw0a213cuh0ygi/yakkety.mp3?dl=1'
-    robot.playOnSonos yaketySax
+    robot.playOnSonos yaketySax, res

@@ -15,28 +15,31 @@ module.exports = (robot) ->
 
   robot.sonos_sockets = []
 
+  logClientStats = (msg) ->
+    console.log msg
+    console.log "#{robot.sonos_sockets.count} Sonos relay clients currently connected."
+
   # MANAGE SOCKET.IO CONNECTED CLIENTS LIST
   io.on 'connection', (socket) ->
-    console.log 'a user connected to socket'
-
     robot.sonos_sockets.unshift socket
+    logClientStats "New client connected to Sonos relay!"
 
+    # this is basically a destructor applied to each socket as it comes in
     socket.on 'disconnect', ->
-      console.log "Goodbye to #{socket}"
       robot.sonos_sockets = robot.sonos_sockets.filter (aSocket) -> aSocket isnt socket
-
-  io.on 'disconnect', (oldSocket) ->
-    console.log "Forgetting #{oldSocket}"
-    robot.sonos_sockets = robot.sonos_sockets.filter (socket) -> socket isnt oldSocket
+      logClientStats "Client disconnected from Sonos relay."
 
   # EXPOSE SONOS TO HUBOT
-  robot.playOnSonos = (url) ->
+  robot.playOnSonos = (url, res) ->
     console.log "Checking Sockets: #{robot.sonos_sockets}"
 
-    for socket in robot.sonos_sockets
-      console.log 'sonosing a message...'
-      socket.emit 'play_url', url: url
+    if robot.sonos_sockets.length < 1
+      res.respond "Sorry, I don't have any Sonos relay clients connected right now."
+    else
+      for socket in robot.sonos_sockets
+        console.log 'sonosing a message...'
+        socket.emit 'play_url', url: url
 
   # LISTEN FOR SONOS COMMANDS
   robot.respond /sonos (.+)/, (res) ->
-    robot.playOnSonos res.match[1]
+    robot.playOnSonos res.match[1], res
