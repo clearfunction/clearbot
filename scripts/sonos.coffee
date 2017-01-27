@@ -17,7 +17,7 @@ module.exports = (robot) ->
 
   logClientStats = (msg) ->
     console.log msg
-    console.log "#{robot.sonos_sockets.count} Sonos relay clients currently connected."
+    console.log "\t#{robot.sonos_sockets.length} Sonos relay clients currently connected."
 
   # MANAGE SOCKET.IO CONNECTED CLIENTS LIST
   io.on 'connection', (socket) ->
