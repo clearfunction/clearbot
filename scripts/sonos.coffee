@@ -35,7 +35,10 @@ module.exports = (robot) ->
     console.log "Checking Sockets: #{robot.sonos_sockets}"
 
     if robot.sonos_sockets.length < 1
-      res.send "Sorry, I don't have any Sonos relay clients connected right now. You can download one here: #{RELAY_CLIENT_DOWNLOAD_URL}"
+      res.reply "Sorry, I don't have any Sonos relay clients connected right now. You can download one here... #{RELAY_CLIENT_DOWNLOAD_URL}"
+      setTimeout () ->
+        res.reply "... Burn!  :fire:"
+      , 3 * 1000
     else
       for socket in robot.sonos_sockets
         console.log 'sonosing a message...'
