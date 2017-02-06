@@ -26,13 +26,13 @@ module.exports = (robot) ->
     robot.playOnSonos yaketySax, res
 
   robot.hear /fight/, (res) ->
-    yaketySax = 'https://www.dropbox.com/s/dtqubg932qfgex1/Street%20Figher%20Forever.m4a?dl=1'
+    streetFighter = 'https://www.dropbox.com/s/dtqubg932qfgex1/Street%20Figher%20Forever.m4a?dl=1'
     robot.playOnSonos yaketySax, res
 
   robot.hear /rick/, (res) ->
-    yaketySax = 'https://www.dropbox.com/s/1cmqoz0gbx3vqpw/rickroll.m4a?dl=1'
+    rickRoll = 'https://www.dropbox.com/s/1cmqoz0gbx3vqpw/rickroll.m4a?dl=1'
     robot.playOnSonos yaketySax, res
 
   robot.hear /roll/, (res) ->
-    yaketySax = 'https://www.dropbox.com/s/1cmqoz0gbx3vqpw/rickroll.m4a?dl=1'
+    rickRoll = 'https://www.dropbox.com/s/1cmqoz0gbx3vqpw/rickroll.m4a?dl=1'
     robot.playOnSonos yaketySax, res
