@@ -27,12 +27,12 @@ module.exports = (robot) ->
 
   robot.hear /fight/, (res) ->
     streetFighter = 'https://www.dropbox.com/s/dtqubg932qfgex1/Street%20Figher%20Forever.m4a?dl=1'
-    robot.playOnSonos yaketySax, res
+    robot.playOnSonos streetFighter, res
 
   robot.hear /rick/, (res) ->
     rickRoll = 'https://www.dropbox.com/s/1cmqoz0gbx3vqpw/rickroll.m4a?dl=1'
-    robot.playOnSonos yaketySax, res
+    robot.playOnSonos rickRoll, res
 
   robot.hear /roll/, (res) ->
     rickRoll = 'https://www.dropbox.com/s/1cmqoz0gbx3vqpw/rickroll.m4a?dl=1'
-    robot.playOnSonos yaketySax, res
+    robot.playOnSonos rickRoll, res
