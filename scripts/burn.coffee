@@ -44,3 +44,7 @@ module.exports = (robot) ->
   robot.hear /rekt/, (res) ->
     url = 'https://www.dropbox.com/s/gvvirc7jirmjnvt/MLG%20SOUND%20EFFECT-%20AIR%20HORNS%21.mp3?dl=1'
     robot.playOnSonos url, res
+
+  robot.hear /brutal/, (res) ->
+    url = 'https://www.dropbox.com/s/iktowhehxb7ldgf/Brutal%2C%20Savage%2C%20Rekt.mp3?dl=1'
+    robot.playOnSonos url, res
