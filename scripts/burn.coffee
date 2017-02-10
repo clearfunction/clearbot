@@ -36,3 +36,7 @@ module.exports = (robot) ->
   robot.hear /roll/, (res) ->
     rickRoll = 'https://www.dropbox.com/s/1cmqoz0gbx3vqpw/rickroll.m4a?dl=1'
     robot.playOnSonos rickRoll, res
+
+  robot.hear /boom/, (res) ->
+    url = 'https://www.dropbox.com/s/v4439d6bgj41gvj/Funkmaster%20Flex%20Bomb%20sound%20effect.mp3?dl=1'
+    robot.playOnSonos url, res
