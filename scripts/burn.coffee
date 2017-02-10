@@ -40,3 +40,7 @@ module.exports = (robot) ->
   robot.hear /boom/, (res) ->
     url = 'https://www.dropbox.com/s/v4439d6bgj41gvj/Funkmaster%20Flex%20Bomb%20sound%20effect.mp3?dl=1'
     robot.playOnSonos url, res
+
+  robot.hear /rekt/, (res) ->
+    url = 'https://www.dropbox.com/s/gvvirc7jirmjnvt/MLG%20SOUND%20EFFECT-%20AIR%20HORNS%21.mp3?dl=1'
+    robot.playOnSonos url, res
