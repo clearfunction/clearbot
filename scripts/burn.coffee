@@ -18,7 +18,7 @@ module.exports = (robot) ->
     robot.playOnSonos res.random(burns), res
     res.send ":fire: Burn! :fire:"
 
-  robot.hear /!sickburn/, (res) ->
+  robot.hear /!sickburn|:fire:/i, (res) ->
     robot.playOnSonos res.random(burns), res
 
   robot.hear /yakety/, (res) ->
@@ -29,11 +29,7 @@ module.exports = (robot) ->
     streetFighter = 'https://www.dropbox.com/s/dtqubg932qfgex1/Street%20Figher%20Forever.m4a?dl=1'
     robot.playOnSonos streetFighter, res
 
-  robot.hear /rick/, (res) ->
-    rickRoll = 'https://www.dropbox.com/s/1cmqoz0gbx3vqpw/rickroll.m4a?dl=1'
-    robot.playOnSonos rickRoll, res
-
-  robot.hear /roll/, (res) ->
+  robot.hear /rick|roll|rickroll/, (res) ->
     rickRoll = 'https://www.dropbox.com/s/1cmqoz0gbx3vqpw/rickroll.m4a?dl=1'
     robot.playOnSonos rickRoll, res
 
