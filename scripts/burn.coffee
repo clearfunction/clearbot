@@ -49,14 +49,6 @@ module.exports = (robot) ->
     url = 'https://www.dropbox.com/s/iktowhehxb7ldgf/Brutal%2C%20Savage%2C%20Rekt.mp3?dl=1'
     robot.playOnSonos url, res
 
-  robot.hear /It Depends/, (res) ->
-    itDepends = 'https://www.dropbox.com/s/nlwo94pdtwhtsl1/It%20Depends.mp3?dl=1'
-    robot.playOnSonos itDepends, res
-
-  robot.hear /ItDepends/, (res) ->
-    itDepends = 'https://www.dropbox.com/s/nlwo94pdtwhtsl1/It%20Depends.mp3?dl=1'
-    robot.playOnSonos itDepends, res
-
-  robot.hear /it depends/, (res) ->
+  robot.hear /it\s*depends/i, (res) ->
     itDepends = 'https://www.dropbox.com/s/nlwo94pdtwhtsl1/It%20Depends.mp3?dl=1'
     robot.playOnSonos itDepends, res
