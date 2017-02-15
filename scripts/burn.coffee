@@ -36,3 +36,15 @@ module.exports = (robot) ->
   robot.hear /roll/, (res) ->
     rickRoll = 'https://www.dropbox.com/s/1cmqoz0gbx3vqpw/rickroll.m4a?dl=1'
     robot.playOnSonos rickRoll, res
+
+  robot.hear /It Depends/, (res) ->
+    itDepends = 'https://www.dropbox.com/s/nlwo94pdtwhtsl1/It%20Depends.mp3?dl=1'
+    robot.playOnSonos itDepends, res
+
+  robot.hear /ItDepends/, (res) ->
+    itDepends = 'https://www.dropbox.com/s/nlwo94pdtwhtsl1/It%20Depends.mp3?dl=1'
+    robot.playOnSonos itDepends, res
+
+  robot.hear /it depends/, (res) ->
+    itDepends = 'https://www.dropbox.com/s/nlwo94pdtwhtsl1/It%20Depends.mp3?dl=1'
+    robot.playOnSonos itDepends, res
