@@ -48,3 +48,6 @@ module.exports = (robot) ->
   robot.hear /it\s*depends/i, (res) ->
     itDepends = 'https://www.dropbox.com/s/nlwo94pdtwhtsl1/It%20Depends.mp3?dl=1'
     robot.playOnSonos itDepends, res
+
+  robot.hear /daniel/i, (res) ->
+    res.send "Daniel is the man!"
