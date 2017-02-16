@@ -50,4 +50,6 @@ module.exports = (robot) ->
     robot.playOnSonos itDepends, res
 
   robot.hear /daniel/i, (res) ->
+    damn_daniel = 'https://www.dropbox.com/s/pzhqv1d5xgd8fxv/damn_daniel.m4a?dl=1'
+    robot.playOnSonos damn_daniel, res
     res.send "Daniel is the man!"
