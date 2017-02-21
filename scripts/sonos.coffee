@@ -66,11 +66,23 @@ module.exports = (robot) ->
   robot.respond /sonos (.+)/, (res) ->
     robot.playOnSonos res.match[1], res
 
-  robot.respond /say (.+)/, (res) ->
-    robot.textToSpeech res.match[1], res
-
-  robot.respond /sonos-health/, (res) ->
+  robot.respond /health/, (res) ->
     if clientCount() > 0
       res.reply "I'm cool, I've got #{clientCount()} Sonos relay(s) connected."
     else
       alertNoClients res
+
+  #############
+  #
+  # TTS lols
+  #
+  #############
+
+  robot.respond /say (.+)/, (res) ->
+    robot.textToSpeech res.match[1], res
+
+  # slackbot reminder syntax, lazy match
+  robot.hear /^Reminder: announcement (.+)/i, (res) ->
+    robot.logger.debug "I'm hearing some 'say' commands here"
+    robot.logger.debug res
+    robot.textToSpeech res.match[1], res
