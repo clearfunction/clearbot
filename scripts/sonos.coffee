@@ -49,6 +49,13 @@ module.exports = (robot) ->
       socket = res.random(robot.sonos_sockets)
       socket.emit 'play_url', url: url
 
+  robot.textToSpeech = (text, res) ->
+    if clientCount() < 1
+      alertNoClients res
+    else
+      console.log 'Sonosing a message to a random client...'
+      socket = res.random(robot.sonos_sockets)
+      socket.emit 'play_text', text: text, volume: 60
 
   ##################
   #
@@ -58,6 +65,9 @@ module.exports = (robot) ->
 
   robot.respond /sonos (.+)/, (res) ->
     robot.playOnSonos res.match[1], res
+
+  robot.respond /say (.+)/, (res) ->
+    robot.textToSpeech res.match[1], res
 
   robot.respond /sonos-health/, (res) ->
     if clientCount() > 0
