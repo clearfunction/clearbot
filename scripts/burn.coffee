@@ -53,3 +53,8 @@ module.exports = (robot) ->
     damn_daniel = 'https://www.dropbox.com/s/pzhqv1d5xgd8fxv/damn_daniel.m4a?dl=1'
     robot.playOnSonos damn_daniel, res
     res.send "Daniel is the man!"
+
+  robot.hear /\bham\b/i, (res) ->
+    robot.playOnSonos 'https://hambutton.s3.amazonaws.com/ham.mp3', res
+    res.send ":piggy:"
+    res.send "hambutton.com"
