@@ -56,8 +56,8 @@ module.exports = (robot) ->
     res.send "Daniel is the man!"
 
   robot.hear /chewie/i, (res) ->
-  url = 'http://soundbible.com/mp3/Chewbacca%20Wookie%20Noise-SoundBible.com-1201859158.mp3'
-  robot.playOnSonos url, res
+    url = 'http://soundbible.com/mp3/Chewbacca%20Wookie%20Noise-SoundBible.com-1201859158.mp3'
+    robot.playOnSonos url, res
 
   robot.hear /\bham\b/i, (res) ->
     robot.playOnSonos 'https://hambutton.s3.amazonaws.com/ham.mp3', res
