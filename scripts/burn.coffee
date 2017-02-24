@@ -63,6 +63,10 @@ module.exports = (robot) ->
     url = 'https://www.dropbox.com/s/2zkm9umu1pl6dse/Cash%20Register%20Sound%20Effect.mp3?dl=1'
     robot.playOnSonos url, res
 
+  robot.hear /:bell:|:bellhop_bell:/i, (res) ->
+    url = 'https://www.dropbox.com/s/qi75u7e8tq3pzcr/Desk%20Bell%20sound%20effect.mp3?dl=1'
+    robot.playOnSonos url, res
+
   robot.hear /\bham\b/i, (res) ->
     robot.playOnSonos 'https://hambutton.s3.amazonaws.com/ham.mp3', res
     res.send ":piggy:"
