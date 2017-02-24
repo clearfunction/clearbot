@@ -11,7 +11,8 @@
 
 module.exports = (robot) ->
   burns = [
-    'https://www.dropbox.com/s/ql3z6d7kmoyof99/sick_burn.mp3?dl=1'
+    'https://www.dropbox.com/s/ql3z6d7kmoyof99/sick_burn.mp3?dl=1',
+    'https://www.dropbox.com/s/70pmpo3u1lm8c0i/thats_gotta_hurt.mp3?dl=1'
   ]
 
   robot.respond /burn/, (res) ->
@@ -53,6 +54,10 @@ module.exports = (robot) ->
     damn_daniel = 'https://www.dropbox.com/s/pzhqv1d5xgd8fxv/damn_daniel.m4a?dl=1'
     robot.playOnSonos damn_daniel, res
     res.send "Daniel is the man!"
+
+  robot.hear /chewie/i, (res) ->
+  url = 'http://soundbible.com/mp3/Chewbacca%20Wookie%20Noise-SoundBible.com-1201859158.mp3'
+  robot.playOnSonos url, res
 
   robot.hear /\bham\b/i, (res) ->
     robot.playOnSonos 'https://hambutton.s3.amazonaws.com/ham.mp3', res
