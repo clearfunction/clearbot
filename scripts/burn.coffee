@@ -59,6 +59,10 @@ module.exports = (robot) ->
     url = 'http://soundbible.com/mp3/Chewbacca%20Wookie%20Noise-SoundBible.com-1201859158.mp3'
     robot.playOnSonos url, res
 
+  robot.hear /:dollar:/i, (res) ->
+    url = 'https://www.dropbox.com/s/2zkm9umu1pl6dse/Cash%20Register%20Sound%20Effect.mp3?dl=1'
+    robot.playOnSonos url, res
+
   robot.hear /\bham\b/i, (res) ->
     robot.playOnSonos 'https://hambutton.s3.amazonaws.com/ham.mp3', res
     res.send ":piggy:"
