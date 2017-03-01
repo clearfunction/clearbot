@@ -74,3 +74,6 @@ module.exports = (robot) ->
 
   robot.hear /\bsad\b|trombone/i, (res) ->
     robot.playOnSonos 'https://www.dropbox.com/s/ky4zv5vkhqmdc5k/sad_trombone.mp3?dl=1', res
+
+  robot.hear /cookie/i, (res) ->
+    robot.playOnSonos 'https://www.dropbox.com/s/f5mtpjxo9ylwc7f/is_it_cookie.mp3?dl=1', res
