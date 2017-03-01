@@ -71,3 +71,6 @@ module.exports = (robot) ->
     robot.playOnSonos 'https://hambutton.s3.amazonaws.com/ham.mp3', res
     res.send ":piggy:"
     res.send "hambutton.com"
+
+  robot.hear /\bsad\b|trombone/i, (res) ->
+    robot.playOnSonos 'https://www.dropbox.com/s/ky4zv5vkhqmdc5k/sad_trombone.mp3?dl=1', res
