@@ -77,3 +77,6 @@ module.exports = (robot) ->
 
   robot.hear /cookie/i, (res) ->
     robot.playOnSonos 'https://www.dropbox.com/s/f5mtpjxo9ylwc7f/is_it_cookie.mp3?dl=1', res
+
+  robot.hear /shoryuken/i, (res) ->
+    robot.playOnSonos 'https://www.dropbox.com/s/9w2xqftjy6hnnl5/Street%20Fighter%20II%20Ken%20Theme%20Original.mp3?dl=1', res
