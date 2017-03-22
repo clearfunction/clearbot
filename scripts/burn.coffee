@@ -50,11 +50,6 @@ module.exports = (robot) ->
     itDepends = 'https://www.dropbox.com/s/nlwo94pdtwhtsl1/It%20Depends.mp3?dl=1'
     robot.playOnSonos itDepends, res
 
-  robot.hear /daniel/i, (res) ->
-    damn_daniel = 'https://www.dropbox.com/s/pzhqv1d5xgd8fxv/damn_daniel.m4a?dl=1'
-    robot.playOnSonos damn_daniel, res
-    res.send "Daniel is the man!"
-
   robot.hear /chewie/i, (res) ->
     url = 'http://soundbible.com/mp3/Chewbacca%20Wookie%20Noise-SoundBible.com-1201859158.mp3'
     robot.playOnSonos url, res
