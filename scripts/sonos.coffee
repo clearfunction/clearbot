@@ -46,7 +46,11 @@ module.exports = (robot) ->
       alertNoClients res
     else
       console.log 'Sonosing a message to a random client...'
-      socket = res.random(robot.sonos_sockets)
+      try # we won't always have a valid `res` object if this is called via webhook for instance
+        socket = res.random(robot.sonos_sockets)
+      catch error
+        socket = robot.sonos_sockets[0]
+        
       socket.emit 'play_url', url: url
 
   robot.textToSpeech = (text, res) ->
