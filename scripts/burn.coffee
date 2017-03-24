@@ -62,6 +62,7 @@ module.exports = (robot) ->
   # this will listen at clearbot.herokuapp.com/hubot/chaching - set up a slack webhook
   robot.router.post "/hubot/chaching", (req, res) ->
     robot.playOnSonos cashUrl, res
+    res.end "💵 Chaching! 💵"
 
   robot.respond /:bell:|:bellhop_bell:/i, (res) ->
     url = 'https://www.dropbox.com/s/qi75u7e8tq3pzcr/Desk%20Bell%20sound%20effect.mp3?dl=1'
