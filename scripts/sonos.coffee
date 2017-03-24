@@ -54,7 +54,10 @@ module.exports = (robot) ->
       alertNoClients res
     else
       console.log 'Sonosing a message to a random client...'
-      socket = res.random(robot.sonos_sockets)
+      if res? # we won't have a regular res object when getting called in weirdly via webhook
+        socket = res.random(robot.sonos_sockets)
+      else
+        socket = robot.sonos_sockets[0]
       socket.emit 'play_text', text: text, volume: 60
 
   ##################
