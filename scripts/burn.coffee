@@ -54,9 +54,14 @@ module.exports = (robot) ->
     url = 'http://soundbible.com/mp3/Chewbacca%20Wookie%20Noise-SoundBible.com-1201859158.mp3'
     robot.playOnSonos url, res
 
+  # this URL is indented oddly so we can use it for two different events - see the webhook below
+  cashUrl = 'https://www.dropbox.com/s/2zkm9umu1pl6dse/Cash%20Register%20Sound%20Effect.mp3?dl=1'
   robot.respond /:dollar:/i, (res) ->
-    url = 'https://www.dropbox.com/s/2zkm9umu1pl6dse/Cash%20Register%20Sound%20Effect.mp3?dl=1'
-    robot.playOnSonos url, res
+    robot.playOnSonos cashUrl, res
+  
+  # this will listen at clearbot.herokuapp.com/hubot/chaching - set up a slack webhook
+  robot.router.post "/hubot/chaching", (req, res) ->
+    robot.playOnSonos cashUrl, res
 
   robot.respond /:bell:|:bellhop_bell:/i, (res) ->
     url = 'https://www.dropbox.com/s/qi75u7e8tq3pzcr/Desk%20Bell%20sound%20effect.mp3?dl=1'
