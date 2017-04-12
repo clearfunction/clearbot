@@ -51,7 +51,7 @@ module.exports = (robot) ->
       catch error
         socket = robot.sonos_sockets[0]
         
-      socket.emit 'play_urlDISABLED', url: url
+      socket.emit 'play_url', url: url
 
   robot.textToSpeech = (text, res) ->
     if clientCount() < 1
@@ -63,7 +63,7 @@ module.exports = (robot) ->
       catch error
         socket = robot.sonos_sockets[0]
         
-      socket.emit 'play_textDISABLED', text: text, volume: 60
+      socket.emit 'play_text', text: text, volume: 60
 
   ##################
   #
