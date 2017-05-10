@@ -10,7 +10,7 @@
 #
 
 module.exports = (robot) ->
-  RELAY_CLIENT_DOWNLOAD_URL = "https://github.com/clearfunction/sonos_proxy_rb"
+  RELAY_CLIENT_DOWNLOAD_URL = "https://github.com/clearfunction/sonos_proxy_nodejs"
   # PREAMBLE
   io = require('socket.io')(robot.server)
 
