@@ -31,7 +31,7 @@ module.exports = (robot) ->
     robot.playOnSonos streetFighter, res
 
   robot.respond /rick roll|rickroll/, (res) ->
-    rickRoll = 'https://www.dropbox.com/s/1cmqoz0gbx3vqpw/rickroll.m4a?dl=1'
+    rickRoll = 'https://www.dropbox.com/s/eib3bcymnc9ns0i/rick_roll.m4a?dl=1'
     robot.playOnSonos rickRoll, res
 
   robot.respond /boom/, (res) ->
@@ -47,7 +47,7 @@ module.exports = (robot) ->
     robot.playOnSonos url, res
 
   robot.respond /it\s*depends/i, (res) ->
-    itDepends = 'https://www.dropbox.com/s/nlwo94pdtwhtsl1/It%20Depends.mp3?dl=1'
+    itDepends = 'https://www.dropbox.com/s/fjcmd7mtzwtlmxq/it_depends.mp3?dl=1'
     robot.playOnSonos itDepends, res
 
   robot.respond /chewie/i, (res) ->
