@@ -27,7 +27,7 @@ module.exports = (robot) ->
     robot.playOnSonos yaketySax, res
 
   robot.respond /fight/, (res) ->
-    streetFighter = 'https://www.dropbox.com/s/dtqubg932qfgex1/Street%20Figher%20Forever.m4a?dl=1'
+    streetFighter = 'https://www.dropbox.com/s/kbzik0yx8zt2aa4/guile_theme.mp3?dl=1'
     robot.playOnSonos streetFighter, res
 
   robot.respond /rick roll|rickroll/, (res) ->
