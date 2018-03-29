@@ -19,16 +19,17 @@ spec:
     spec:
       containers:
       - args:
-        - bin/hubot
-        - -a
-        - slack
+        - ./boot.sh
         env:
         - name: PORT
           value: "8000"
         - name: HUBOT_LOG_LEVEL
           value: debug
         - name: HUBOT_SLACK_TOKEN
-          value: xoxb-133687460855-QQ1Fd3WLf8W9gtm7LcLM5mSQ
+          valueFrom:
+            secretKeyRef:
+              name: slack-token
+              key: token
         - name: PAPERTRAIL_API_TOKEN
           value: bbCYxcSTm0BMdLchf3
         - name: REDIS_URL
