@@ -1,0 +1,63 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.11.0 ()
+  creationTimestamp: null
+  labels:
+    io.kompose.service: hubot
+  name: hubot
+spec:
+  replicas: 1
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        io.kompose.service: hubot
+    spec:
+      containers:
+      - args:
+        - bin/hubot
+        env:
+        - name: PORT
+          value: "8000"
+        - name: HUBOT_HEROKU_KEEPALIVE_URL
+          value: https://clearbot.herokuapp.com/
+        - name: HUBOT_LOG_LEVEL
+          value: debug
+        - name: HUBOT_SLACK_TOKEN
+          value: xoxb-133687460855-QQ1Fd3WLf8W9gtm7LcLM5mSQ
+        - name: PAPERTRAIL_API_TOKEN
+          value: bbCYxcSTm0BMdLchf3
+        - name: REDIS_URL
+          value: redis://h:pa132227ab37dcf30a180a8ddebf0dc8b5ad25e2412edc68ea5a123e54315a0ee@ec2-54-225-127-4.compute-1.amazonaws.com:25489
+        image: cfcontainersdp.azurecr.io/clearbot/hubot:latest
+        name: hubot
+        ports:
+        - containerPort: 8000
+        resources: {}
+        stdin: true
+        tty: true
+      restartPolicy: Always
+status: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.11.0 ()
+  creationTimestamp: null
+  labels:
+    io.kompose.service: hubot
+  name: hubot
+spec:
+  type: LoadBalancer
+  ports:
+  - name: "http"
+    port: 80
+    targetPort: 8000
+  selector:
+    io.kompose.service: hubot

@@ -4,3 +4,8 @@ node_modules
 *~
 log
 npm-debug.log
+
+# vim
+*.swp
+*.swo
+*~
