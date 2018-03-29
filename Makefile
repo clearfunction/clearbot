@@ -5,3 +5,6 @@ push:
 
 deploy:
 	kubectl apply -f ./hubot-k8s.yaml
+
+docker_login:
+	az acr login --name cfcontainersdp
