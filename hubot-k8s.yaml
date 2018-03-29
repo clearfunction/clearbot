@@ -34,7 +34,7 @@ spec:
           value: bbCYxcSTm0BMdLchf3
         - name: REDIS_URL
           value: redis://redis-master:6379
-        image: cfcontainersdp.azurecr.io/clearbot/hubot:0100b4
+        image: cfcontainersdp.azurecr.io/clearbot/hubot:27e692
         name: hubot
         ports:
         - containerPort: 8000
