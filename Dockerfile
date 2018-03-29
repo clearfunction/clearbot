@@ -12,5 +12,3 @@ WORKDIR /opt/app
 RUN yarn
 
 COPY . /opt/app
-
-CMD bin/hubot
