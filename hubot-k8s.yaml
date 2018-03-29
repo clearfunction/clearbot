@@ -32,8 +32,8 @@ spec:
         - name: PAPERTRAIL_API_TOKEN
           value: bbCYxcSTm0BMdLchf3
         - name: REDIS_URL
-          value: redis://h:pa132227ab37dcf30a180a8ddebf0dc8b5ad25e2412edc68ea5a123e54315a0ee@ec2-54-225-127-4.compute-1.amazonaws.com:25489
-        image: cfcontainersdp.azurecr.io/clearbot/hubot:cd5d3f
+          value: redis://redis-master:6379
+        image: cfcontainersdp.azurecr.io/clearbot/hubot:757abd
         name: hubot
         ports:
         - containerPort: 8000
