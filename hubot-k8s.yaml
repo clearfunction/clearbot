@@ -20,11 +20,13 @@ spec:
       containers:
       - args:
         - bin/hubot
+        - -a
+        - slack
         env:
         - name: PORT
           value: "8000"
         - name: HUBOT_HEROKU_KEEPALIVE_URL
-          value: https://clearbot.herokuapp.com/
+          value: http://13.90.130.160/
         - name: HUBOT_LOG_LEVEL
           value: debug
         - name: HUBOT_SLACK_TOKEN
