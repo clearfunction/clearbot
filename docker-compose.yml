@@ -1,0 +1,13 @@
+version: '3'
+services:
+  hubot: 
+    build: . # use the local Dockerfile
+    command: bin/hubot
+    ports:
+      - "8000:8000" # expose port 8000 as port 8000
+    environment:
+      - PORT=8000
+    tty: true
+    stdin_open: true
+    #volumes:
+    #  - .:/opt/app # mount the current directory to /app
