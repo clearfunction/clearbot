@@ -19,7 +19,9 @@ spec:
     spec:
       containers:
       - args:
-        - ./boot.sh
+        - bash
+        - -c
+        - env HUBOT_SLACK_TOKEN=$HUBOT_SLACK_TOKEN bin/hubot -a slack
         env:
         - name: PORT
           value: "8000"
