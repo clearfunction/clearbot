@@ -19,21 +19,24 @@ spec:
     spec:
       containers:
       - args:
-        - bin/hubot
-        - -a
-        - slack
+        - bash
+        - -c
+        - env HUBOT_SLACK_TOKEN=$HUBOT_SLACK_TOKEN bin/hubot -a slack
         env:
         - name: PORT
           value: "8000"
         - name: HUBOT_LOG_LEVEL
           value: debug
         - name: HUBOT_SLACK_TOKEN
-          value: xoxb-133687460855-QQ1Fd3WLf8W9gtm7LcLM5mSQ
+          valueFrom:
+            secretKeyRef:
+              name: slack-token
+              key: token
         - name: PAPERTRAIL_API_TOKEN
           value: bbCYxcSTm0BMdLchf3
         - name: REDIS_URL
           value: redis://redis-master:6379
-        image: cfcontainersdp.azurecr.io/clearbot/hubot:757abd
+        image: cfcontainersdp.azurecr.io/clearbot/hubot:27e692
         name: hubot
         ports:
         - containerPort: 8000
