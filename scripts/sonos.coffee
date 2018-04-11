@@ -89,6 +89,10 @@ module.exports = (robot) ->
   robot.respond /say (.+)/, (res) ->
     robot.textToSpeech res.match[1], res
 
+  # need to hear these so we can set slackbot reminders
+  robot.hear /mrburns say (.+)/, (res) ->
+    robot.textToSpeech res.match[1], res
+
   # slackbot reminder syntax, lazy match
   robot.hear /^Reminder: announcement (.+)/i, (res) ->
     robot.logger.debug "I'm hearing some 'say' commands here"
