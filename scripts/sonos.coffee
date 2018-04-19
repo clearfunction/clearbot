@@ -86,8 +86,8 @@ module.exports = (robot) ->
   #
   #############
 
-  robot.respond /say (.+)/, (res) ->
-    robot.textToSpeech res.match[1], res
+#  robot.respond /say (.+)/, (res) ->
+#    robot.textToSpeech res.match[1], res
 
   # need to hear these so we can set slackbot reminders
   robot.hear /mrburns say (.+)/, (res) ->
