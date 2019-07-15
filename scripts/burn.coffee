@@ -11,8 +11,8 @@
 
 module.exports = (robot) ->
   burns = [
-    'https://www.dropbox.com/s/ql3z6d7kmoyof99/sick_burn.mp3?dl=1',
-    'https://www.dropbox.com/s/70pmpo3u1lm8c0i/thats_gotta_hurt.mp3?dl=1'
+    'sick-burn.mp3',
+    'thats-gotta-hurt.mp3'
   ]
 
   robot.respond /burn/, (res) ->
@@ -23,61 +23,61 @@ module.exports = (robot) ->
     robot.playOnSonos res.random(burns), res
 
   robot.respond /yakety/, (res) ->
-    yaketySax = 'https://www.dropbox.com/s/1uw0a213cuh0ygi/yakkety.mp3?dl=1'
+    yaketySax = 'yakkety.mp3'
     robot.playOnSonos yaketySax, res
 
   robot.respond /fight/, (res) ->
-    streetFighter = 'https://www.dropbox.com/s/kbzik0yx8zt2aa4/guile_theme.mp3?dl=1'
+    streetFighter = 'sf2-guile-theme.mp3'
     robot.playOnSonos streetFighter, res
 
   robot.respond /rick roll|rickroll/, (res) ->
-    rickRoll = 'https://www.dropbox.com/s/eib3bcymnc9ns0i/rick_roll.m4a?dl=1'
+    rickRoll = 'rick-roll.m4a'
     robot.playOnSonos rickRoll, res
 
   robot.respond /boom/, (res) ->
-    url = 'https://www.dropbox.com/s/v4439d6bgj41gvj/Funkmaster%20Flex%20Bomb%20sound%20effect.mp3?dl=1'
+    url = 'bomb.mp3'
     robot.playOnSonos url, res
 
   robot.respond /rekt/, (res) ->
-    url = 'https://www.dropbox.com/s/gvvirc7jirmjnvt/MLG%20SOUND%20EFFECT-%20AIR%20HORNS%21.mp3?dl=1'
+    url = 'air-horns.mp3'
     robot.playOnSonos url, res
 
   robot.respond /brutal/, (res) ->
-    url = 'https://www.dropbox.com/s/iktowhehxb7ldgf/Brutal%2C%20Savage%2C%20Rekt.mp3?dl=1'
+    url = 'brutal-savage-rekt.mp3'
     robot.playOnSonos url, res
 
   robot.respond /:?it\s?depends:?/i, (res) ->
-    itDepends = 'https://www.dropbox.com/s/fjcmd7mtzwtlmxq/it_depends.mp3?dl=1'
+    itDepends = 'it-depends.mp3'
     robot.playOnSonos itDepends, res
 
   robot.respond /chewie/i, (res) ->
-    url = 'http://soundbible.com/mp3/Chewbacca%20Wookie%20Noise-SoundBible.com-1201859158.mp3'
+    url = 'chewbacca.mp3'
     robot.playOnSonos url, res
 
   # this URL is indented oddly so we can use it for two different events - see the webhook below
-  cashUrl = 'https://www.dropbox.com/s/2zkm9umu1pl6dse/Cash%20Register%20Sound%20Effect.mp3?dl=1'
+  cashUrl = 'cash-register.mp3'
   robot.respond /:dollar:/i, (res) ->
     robot.playOnSonos cashUrl, res
-  
+
   # this will listen at clearbot.herokuapp.com/hubot/chaching - set up a slack webhook
   robot.router.post "/hubot/chaching", (req, res) ->
     robot.playOnSonos cashUrl, res
     res.end "💵 Chaching! 💵"
 
   robot.respond /:bell:|:bellhop_bell:/i, (res) ->
-    url = 'https://www.dropbox.com/s/qi75u7e8tq3pzcr/Desk%20Bell%20sound%20effect.mp3?dl=1'
+    url = 'desk-bell.mp3'
     robot.playOnSonos url, res
 
   robot.respond /\bham\b/i, (res) ->
-    robot.playOnSonos 'https://hambutton.s3.amazonaws.com/ham.mp3', res
+    robot.playOnSonos 'ham.mp3', res
     res.send ":piggy:"
     res.send "hambutton.com"
 
   robot.respond /\bsad\b|trombone/i, (res) ->
-    robot.playOnSonos 'https://www.dropbox.com/s/ky4zv5vkhqmdc5k/sad_trombone.mp3?dl=1', res
+    robot.playOnSonos 'sad-trombone.mp3', res
 
   robot.respond /cookie/i, (res) ->
-    robot.playOnSonos 'https://www.dropbox.com/s/f5mtpjxo9ylwc7f/is_it_cookie.mp3?dl=1', res
+    robot.playOnSonos 'is-it-cookie.mp3', res
 
   robot.respond /shoryuken/i, (res) ->
-    robot.playOnSonos 'https://www.dropbox.com/s/9w2xqftjy6hnnl5/Street%20Fighter%20II%20Ken%20Theme%20Original.mp3?dl=1', res
+    robot.playOnSonos 'sf2-ken-theme.mp3', res
