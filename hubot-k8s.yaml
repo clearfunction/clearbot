@@ -21,7 +21,7 @@ spec:
       - args:
         - bash
         - -c
-        - env HUBOT_SLACK_TOKEN=$HUBOT_SLACK_TOKEN bin/hubot -a slack
+        - env HUBOT_SLACK_TOKEN=$HUBOT_SLACK_TOKEN bin/hubot -a slack -n burnbot
         env:
         - name: PORT
           value: "8000"
@@ -35,8 +35,8 @@ spec:
         - name: PAPERTRAIL_API_TOKEN
           value: bbCYxcSTm0BMdLchf3
         - name: REDIS_URL
-          value: redis://redis-master:6379
-        image: cfcontainersdp.azurecr.io/clearbot/hubot:da9024
+          value: redis://:DsomWZzJUZ@redis-master:6379
+        image: clearfunction.azurecr.io/clearbot/hubot:b44fb8
         name: hubot
         ports:
         - containerPort: 8000
