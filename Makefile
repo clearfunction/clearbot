@@ -4,7 +4,7 @@ lint:
 	yarn run lint
 
 build:
-  docker build -t $(IMAGENAME)
+	docker build -t $(IMAGENAME) .
 
 run:
-  docker run --env-file=.env -t -i $(IMAGENAME)
+	docker run --env-file=.env --rm -t -i $(IMAGENAME)
