@@ -1,26 +1,33 @@
 {
   "name": "clearbot",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "private": true,
-  "author": "Daniel Pritchett <daniel@clearfunction.com>",
-  "description": "Slack automation as a value",
+  "description": "Clear Function chat/slack bot",
+  "main": "index.js",
+  "author": "David Mohundro <david@clearfunction.com>",
+  "license": "MIT",
+  "license": "MIT",
   "dependencies": {
-    "hubot": "^2.19.0",
-    "hubot-diagnostics": "0.0.1",
-    "hubot-google-images": "^0.2.6",
-    "hubot-google-translate": "^0.2.0",
-    "hubot-help": "^0.2.0",
-    "hubot-maps": "0.0.2",
-    "hubot-pugme": "^0.1.0",
-    "hubot-redis-brain": "0.0.3",
-    "hubot-rules": "^0.1.1",
-    "hubot-scripts": "^2.17.2",
-    "hubot-shipit": "^0.2.0",
-    "hubot-slack": "^4.3.2",
-    "socket.io": "^1.7.2"
+    "@slack/bolt": "^1.2.0",
+    "@types/socket.io": "^2.1.2",
+    "dotenv": "^8.1.0",
+    "socket.io": "^2.2.0",
+    "ts-node-dev": "^1.0.0-pre.42",
+    "typescript": "^3.5.3"
   },
-  "engines": {
-    "node": "6.3.1",
-    "yarn": "1.5.1"
+  "scripts": {
+    "lint": "eslint '**/*.ts'",
+    "tsc": "tsc",
+    "dev": "ts-node-dev --respawn --transpileOnly ./src/app.ts",
+    "prod": "tsc && ./build/app.js"
+  },
+  "devDependencies": {
+    "@types/dotenv": "^6.1.1",
+    "@typescript-eslint/eslint-plugin": "^2.0.0",
+    "@typescript-eslint/parser": "^2.0.0",
+    "eslint": "^6.2.2",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-config-prettier": "^6.1.0",
+    "eslint-plugin-import": "^2.18.2"
   }
 }
