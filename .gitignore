@@ -1,12 +1,6 @@
-node_modules
-.DS_Store*
-.hubot_history
-*~
-log
-npm-debug.log
-yarn-error.log
-
-# vim
+node_modules/**/*
+npm-debug.*
+*.orig.*
+build/
 *.swp
-*.swo
-*~
+.env
