@@ -1,7 +1,7 @@
 FROM node:10-alpine as builder
 
 ARG NODE_ENV=development
-ENV NODE_ENV=${NODE_ENV}}
+ENV NODE_ENV=${NODE_ENV}
 
 WORKDIR /usr/src/app
 
