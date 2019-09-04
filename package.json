@@ -6,7 +6,6 @@
   "main": "index.js",
   "author": "David Mohundro <david@clearfunction.com>",
   "license": "MIT",
-  "license": "MIT",
   "dependencies": {
     "@slack/bolt": "^1.2.0",
     "@types/socket.io": "^2.1.2",
@@ -19,7 +18,8 @@
     "lint": "eslint '**/*.ts'",
     "tsc": "tsc",
     "dev": "ts-node-dev --respawn --transpileOnly ./src/app.ts",
-    "prod": "tsc && ./build/app.js"
+    "build:prod": "tsc && node ./build/app.js",
+    "start:prod": "node ./build/app.js"
   },
   "devDependencies": {
     "@types/dotenv": "^6.1.1",
