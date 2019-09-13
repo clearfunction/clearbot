@@ -26,12 +26,12 @@ export default class Sonos {
       }
     });
 
-    app.message(/mrburns say (.+)/, async ({ context, say }) => {
-      this.textToSpeech(context.matches[0], say);
+    app.message(/say (.+)/, async ({ context, say }) => {
+      this.textToSpeech(context.matches[1], say);
     });
 
     app.message(/^Reminder: announcement (.+)/, async ({ context, say }) => {
-      this.textToSpeech(context.matches[0], say);
+      this.textToSpeech(context.matches[1], say);
     });
   }
 
