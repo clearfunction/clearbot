@@ -33,6 +33,7 @@ const burnReponses: Response[] = [
   { listen: /\bsad\b|trombone/i, play: 'sad-trombone.mp3' },
   { listen: /cookie/i, play: 'is-it-cookie.mp3' },
   { listen: /shoryuken/i, play: 'sf2-ken-theme.mp3' },
+  { listen: /flea/i, play: 'spanish-flea.mp3' },
 ];
 
 export default function attachResponses(app: App, sonos: Sonos) {
