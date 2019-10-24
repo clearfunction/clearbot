@@ -7,7 +7,7 @@ const burns = ['sick-burn.mp3', 'thats-gotta-hurt.mp3'];
 
 const burnReponses: Response[] = [
   {
-    listen: /burn/,
+    listen: /burn/i,
     play: () => randomResponse(burns),
     message: ':fire: Burn! :fire:',
   },
@@ -15,12 +15,12 @@ const burnReponses: Response[] = [
     listen: /!sickburn|:fire:/i,
     play: () => randomResponse(burns),
   },
-  { listen: /yakety/, play: 'yakkety.mp3' },
-  { listen: /fight/, play: 'sf2-guile-theme.mp3' },
-  { listen: /rick roll|rickroll/, play: 'rick-roll.m4a' },
-  { listen: /boom/, play: 'bomb.mp3' },
-  { listen: /rekt/, play: 'air-horns.mp3' },
-  { listen: /brutal/, play: 'brutal-savage-rekt.mp3' },
+  { listen: /yakety/i, play: 'yakkety.mp3' },
+  { listen: /fight/i, play: 'sf2-guile-theme.mp3' },
+  { listen: /rick roll|rickroll/i, play: 'rick-roll.m4a' },
+  { listen: /boom/i, play: 'bomb.mp3' },
+  { listen: /rekt/i, play: 'air-horns.mp3' },
+  { listen: /brutal/i, play: 'brutal-savage-rekt.mp3' },
   { listen: /:?it\s?depends:?/i, play: 'it-depends.mp3' },
   { listen: /chewie/i, play: 'chewbacca.mp3' },
   {
