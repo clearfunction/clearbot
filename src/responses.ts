@@ -17,7 +17,7 @@ const burnReponses: Response[] = [
   },
   { listen: /yakety/i, play: 'yakkety.mp3' },
   { listen: /fight/i, play: 'sf2-guile-theme.mp3' },
-  { listen: /rick roll|rickroll/i, play: 'rick-roll.m4a' },
+  { listen: /rick roll|rickroll/i, play: 'rick-roll.mp3' },
   { listen: /boom/i, play: 'bomb.mp3' },
   { listen: /rekt/i, play: 'air-horns.mp3' },
   { listen: /brutal/i, play: 'brutal-savage-rekt.mp3' },
