@@ -15,7 +15,7 @@ const app = new App({
 attachResponses(app, sonos);
 
 (async () => {
-  const server = await app.start(process.env.PORT || 3000);
+  const server = await app.start(Number(process.env.PORT) || 3000);
   sonos.initialize(server, app);
 
   console.log('⚡️ Bolt app is running!');

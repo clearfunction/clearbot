@@ -18,6 +18,8 @@ module.exports = {
     ],
     'import/prefer-default-export': 'off',
     'global-require': 'off',
+    'import/extensions': ['error', 'ignorePackages', { ts: 'never' }],
+    'no-console': 'off',
   },
   settings: {
     'import/resolver': {

@@ -5,7 +5,7 @@ import Sonos from './sonos';
 
 const burns = ['sick-burn.mp3', 'thats-gotta-hurt.mp3'];
 
-const burnReponses: Response[] = [
+const burnResponses: Response[] = [
   {
     listen: /burn/i,
     play: () => randomResponse(burns),
@@ -37,8 +37,8 @@ const burnReponses: Response[] = [
   { listen: /jeopardy/i, play: 'jeopardy.mp3' },
 ];
 
-export default function attachResponses(app: App, sonos: Sonos) {
-  burnReponses.forEach(resp => {
+export default function attachResponses(app: App, sonos: Sonos): void {
+  burnResponses.forEach((resp) => {
     app.message(resp.listen, async ({ say }) => {
       if (resp.message) {
         say(resp.message);
