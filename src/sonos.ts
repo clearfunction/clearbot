@@ -1,12 +1,13 @@
 import { App, SayFn } from '@slack/bolt';
-import * as socketio from 'socket.io';
+import { Server } from 'http';
+import { Server as SocketIOServer } from 'socket.io';
 import { randomFromArray } from './utils';
 
 export default class Sonos {
   sockets: SocketIO.Socket[] = [];
 
-  initialize(server: unknown, app: App) {
-    const io = socketio.listen(server);
+  initialize(server: Server, app: App): void {
+    const io = new SocketIOServer(server);
 
     io.on('connection', (socket: SocketIO.Socket) => {
       this.onConnection(socket);
@@ -35,7 +36,7 @@ export default class Sonos {
     });
   }
 
-  playOnSonos(url: string, say: SayFn) {
+  playOnSonos(url: string, say: SayFn): void {
     if (this.clientCount() < 1) {
       Sonos.alertNoClients(say);
     } else {
@@ -43,7 +44,7 @@ export default class Sonos {
     }
   }
 
-  textToSpeech(text: string, say: SayFn) {
+  textToSpeech(text: string, say: SayFn): void {
     if (this.clientCount() < 1) {
       Sonos.alertNoClients(say);
     } else {
@@ -51,7 +52,7 @@ export default class Sonos {
     }
   }
 
-  private getSocket() {
+  private getSocket(): SocketIO.Socket {
     console.log('Sonosing a message to a random client...');
     let socket = null;
     try {
@@ -62,11 +63,11 @@ export default class Sonos {
     return socket;
   }
 
-  private clientCount() {
+  private clientCount(): number {
     return this.sockets.length;
   }
 
-  private logClientStats(message: string) {
+  private logClientStats(message: string): void {
     console.log(message);
     console.log(
       `${this.clientCount()} Sonos relay clients currently connected.`
@@ -86,12 +87,12 @@ export default class Sonos {
     }, 3 * 1000);
   }
 
-  private onConnection(socket: SocketIO.Socket) {
+  private onConnection(socket: SocketIO.Socket): void {
     this.sockets.unshift(socket);
     this.logClientStats('New clients connected to Sonos relay!');
 
     socket.on('disconnect', () => {
-      this.sockets = this.sockets.filter(x => x !== socket);
+      this.sockets = this.sockets.filter((x) => x !== socket);
       this.logClientStats('Client disconnected from Sonos relay.');
     });
   }
