@@ -1,4 +1,4 @@
-FROM node:10-alpine as builder
+FROM node:14-alpine as builder
 
 ARG NODE_ENV=development
 ENV NODE_ENV=${NODE_ENV}
@@ -10,7 +10,7 @@ RUN yarn install
 COPY src ./
 RUN yarn run tsc
 
-FROM node:10-alpine
+FROM node:14-alpine
 
 WORKDIR /usr/src/app
 COPY --from=builder /usr/src/app/package.json package.json
