@@ -16,7 +16,7 @@
   "scripts": {
     "lint": "eslint '**/*.ts'",
     "tsc": "tsc",
-    "dev": "ts-node-dev --respawn --transpileOnly ./src/app.ts",
+    "dev": "ts-node-dev ./src/app.ts --respawn --transpileOnly",
     "build:prod": "tsc && node ./build/app.js",
     "start:prod": "node ./build/app.js"
   },

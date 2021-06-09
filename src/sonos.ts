@@ -1,17 +1,19 @@
 import { App, SayFn } from '@slack/bolt';
-import { Server } from 'http';
-import { Server as SocketIOServer } from 'socket.io';
+import { Server as HttpServer } from 'http';
+import { Server } from 'socket.io';
 import { randomFromArray } from './utils';
 
 export default class Sonos {
   sockets: SocketIO.Socket[] = [];
 
-  initialize(server: Server, app: App): void {
-    const io = new SocketIOServer(server);
+  initialize(server: HttpServer, app: App): void {
+    const io = new Server(server);
 
     io.on('connection', (socket: SocketIO.Socket) => {
       this.onConnection(socket);
     });
+
+    io.listen(server);
 
     app.message(/sonos (.+)/, async ({ context, say }) => {
       const match = context.matches[0];
