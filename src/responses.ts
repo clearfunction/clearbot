@@ -4,6 +4,7 @@ import { randomFromArray as randomResponse } from './utils';
 import Sonos from './sonos';
 
 const burns = ['sick-burn.mp3', 'thats-gotta-hurt.mp3'];
+const seinfeldTransitions = ['seinfeld-1.mp3', 'seinfeld-2.mp3'];
 
 const burnResponses: Response[] = [
   {
@@ -140,6 +141,12 @@ const burnResponses: Response[] = [
     description: 'The famous Howard Dean scream',
     listen: /howard/i,
     play: 'howard-dean-scream.mp3',
+  },
+  {
+    keyword: 'seinfeld',
+    description: 'When a Seinfeld transition seems appropriate',
+    listen: /seinfeld/i,
+    play: randomResponse(seinfeldTransitions),
   },
 ];
 
