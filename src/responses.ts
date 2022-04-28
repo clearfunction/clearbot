@@ -50,14 +50,14 @@ const burnResponses: Response[] = [
     play: 'air-horns.mp3',
   },
   {
-    keyword: '',
-    description: '',
+    keyword: 'brutal',
+    description: 'Really really brutal rekt',
     listen: /brutal/i,
     play: 'brutal-savage-rekt.mp3',
   },
   {
-    keyword: '',
-    description: '',
+    keyword: 'it depends',
+    description: 'The It Depends theme song',
     listen: /:?it\s?depends:?/i,
     play: 'it-depends.mp3',
   },
