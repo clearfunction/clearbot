@@ -1,6 +1,7 @@
 import { App, SayFn } from '@slack/bolt';
 import { Server as HttpServer } from 'http';
 import { Server } from 'socket.io';
+import { getHelpText } from './responses';
 import { randomFromArray } from './utils';
 
 export default class Sonos {
@@ -27,6 +28,10 @@ export default class Sonos {
       } else {
         Sonos.alertNoClients(say);
       }
+    });
+
+    app.message(/help/, async ({ say }) => {
+      say(getHelpText());
     });
 
     app.message(/say (.+)/, async ({ context, say }) => {
