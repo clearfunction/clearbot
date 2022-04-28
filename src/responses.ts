@@ -5,6 +5,12 @@ import Sonos from './sonos';
 
 const burns = ['sick-burn.mp3', 'thats-gotta-hurt.mp3'];
 const seinfeldTransitions = ['seinfeld-1.mp3', 'seinfeld-2.mp3'];
+const laughTracks = [
+  'laugh-track-1.mp3',
+  'laugh-track-2.mp3',
+  'laugh-track-3.mp3',
+  'laugh-track-4.mp3',
+];
 
 const burnResponses: Response[] = [
   {
@@ -147,6 +153,12 @@ const burnResponses: Response[] = [
     description: 'When a Seinfeld transition seems appropriate',
     listen: /seinfeld/i,
     play: randomResponse(seinfeldTransitions),
+  },
+  {
+    keyword: 'laugh',
+    description: 'When a good laugh track seems appropriate',
+    listen: /laugh/i,
+    play: randomResponse(laughTracks),
   },
 ];
 
