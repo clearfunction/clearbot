@@ -143,6 +143,12 @@ const burnResponses: Response[] = [
     play: 'wilhelm-scream.mp3',
   },
   {
+    keyword: 'startup',
+    description: 'Windows XP startup sound',
+    listen: /startup/i,
+    play: 'startup.mp3',
+  },
+  {
     keyword: 'howard',
     description: 'The famous Howard Dean scream',
     listen: /howard/i,
