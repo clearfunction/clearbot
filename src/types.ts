@@ -3,6 +3,8 @@ interface RandomPlay {
 }
 
 export interface Response {
+  keyword: string;
+  description: string;
   listen: string | RegExp;
   play: string | RandomPlay;
   message?: string;

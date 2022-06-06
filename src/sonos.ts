@@ -1,15 +1,16 @@
 import { App, SayFn } from '@slack/bolt';
 import { Server as HttpServer } from 'http';
-import { Server } from 'socket.io';
+import { Server, Socket } from 'socket.io';
+import { getHelpText } from './responses';
 import { randomFromArray } from './utils';
 
 export default class Sonos {
-  sockets: SocketIO.Socket[] = [];
+  sockets: Socket[] = [];
 
   initialize(server: HttpServer, app: App): void {
     const io = new Server(server);
 
-    io.on('connection', (socket: SocketIO.Socket) => {
+    io.on('connection', (socket: Socket) => {
       this.onConnection(socket);
     });
 
@@ -27,6 +28,10 @@ export default class Sonos {
       } else {
         Sonos.alertNoClients(say);
       }
+    });
+
+    app.message(/help/, async ({ say }) => {
+      say(getHelpText());
     });
 
     app.message(/say (.+)/, async ({ context, say }) => {
@@ -54,7 +59,7 @@ export default class Sonos {
     }
   }
 
-  private getSocket(): SocketIO.Socket {
+  private getSocket(): Socket {
     console.log('Sonosing a message to a random client...');
     let socket = null;
     try {
@@ -89,7 +94,7 @@ export default class Sonos {
     }, 3 * 1000);
   }
 
-  private onConnection(socket: SocketIO.Socket): void {
+  private onConnection(socket: Socket): void {
     this.sockets.unshift(socket);
     this.logClientStats('New clients connected to Sonos relay!');
 

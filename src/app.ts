@@ -1,6 +1,6 @@
 import { App } from '@slack/bolt';
 import dotenv from 'dotenv';
-import attachResponses from './responses';
+import { attachResponses } from './responses';
 import Sonos from './sonos';
 
 dotenv.config();
