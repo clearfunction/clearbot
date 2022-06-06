@@ -36,7 +36,7 @@ webapp: plan
 		-i $(IMAGENAME):$(TAG_SHA)
 
 logging: webapp
-	az webapp log config --application-logging true \
+	az webapp log config --application-logging filesystem \
 		--web-server-logging filesystem \
 		--docker-container-logging filesystem \
 		--level information \
