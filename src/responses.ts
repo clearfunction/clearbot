@@ -166,6 +166,18 @@ const burnResponses: Response[] = [
     listen: /laugh/i,
     play: randomResponse(laughTracks),
   },
+  {
+    keyword: 'sax',
+    description: 'Careless Whisper Saxophone',
+    listen: /sax/i,
+    play: 'saxophone.mp3',
+  },
+  {
+    keyword: 'price is (right|wrong)',
+    description: 'Price is Right Fail Sound',
+    listen: /price is (right|wrong)/i,
+    play: 'price-is-right-fail.mp3',
+  },
 ];
 
 export function attachResponses(app: App, sonos: Sonos): void {
