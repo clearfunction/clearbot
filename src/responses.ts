@@ -178,6 +178,12 @@ const burnResponses: Response[] = [
     listen: /price is (right|wrong)/i,
     play: 'price-is-right-fail.mp3',
   },
+  {
+    keyword: 'kevin',
+    description: 'Uh oh, Kevin is home alone!',
+    listen: /kevin/i,
+    play: 'kevin.mp3',
+  },
 ];
 
 export function attachResponses(app: App, sonos: Sonos): void {
