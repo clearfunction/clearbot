@@ -4,15 +4,36 @@ import { Server, Socket } from 'socket.io';
 import { getHelpText } from './responses';
 import { randomFromArray } from './utils';
 
+type PlayUrl = {
+  url: string;
+};
+
+type PlayText = {
+  text: string;
+  volume: number;
+};
+
+interface ServerToClientEvents {
+  play_url: (data: PlayUrl) => void;
+  play_text: (data: PlayText) => void;
+  close: () => void;
+}
+
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
+interface ClientToServerEvents {}
+
 export default class Sonos {
-  sockets: Socket[] = [];
+  sockets: Socket<ClientToServerEvents, ServerToClientEvents>[] = [];
 
   initialize(server: HttpServer, app: App): void {
-    const io = new Server(server);
+    const io = new Server<ClientToServerEvents, ServerToClientEvents>(server);
 
-    io.on('connection', (socket: Socket) => {
-      this.onConnection(socket);
-    });
+    io.on(
+      'connection',
+      (socket: Socket<ClientToServerEvents, ServerToClientEvents>) => {
+        this.onConnection(socket);
+      }
+    );
 
     io.listen(server);
 
@@ -59,7 +80,7 @@ export default class Sonos {
     }
   }
 
-  private getSocket(): Socket {
+  private getSocket(): Socket<ClientToServerEvents, ServerToClientEvents> {
     console.log('Sonosing a message to a random client...');
     let socket = null;
     try {
@@ -94,7 +115,9 @@ export default class Sonos {
     }, 3 * 1000);
   }
 
-  private onConnection(socket: Socket): void {
+  private onConnection(
+    socket: Socket<ClientToServerEvents, ServerToClientEvents>
+  ): void {
     this.sockets.unshift(socket);
     this.logClientStats('New clients connected to Sonos relay!');
 
