@@ -202,6 +202,12 @@ const burnResponses: Response[] = [
     listen: /fault/i,
     play: 'all-your-fault.mp3',
   },
+  {
+    keyword: 'jurassic',
+    description: 'A wondrous performance of the Jurassic Park theme song',
+    listen: /jurassic/i,
+    play: 'jurassic_park_flute.mp3',
+  },
 ];
 
 export function attachResponses(app: App, sonos: Sonos): void {
