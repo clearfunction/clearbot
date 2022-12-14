@@ -208,6 +208,12 @@ const burnResponses: Response[] = [
     listen: /jurassic/i,
     play: 'jurassic_park_flute.mp3',
   },
+  {
+    keyword: 'dynamite',
+    description: 'And boom goes the dynamite',
+    listen: /dynamite/i,
+    play: 'boom-goes-the-dynamite.mp3',
+  },
 ];
 
 export function attachResponses(app: App, sonos: Sonos): void {
