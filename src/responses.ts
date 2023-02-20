@@ -214,6 +214,12 @@ const burnResponses: Response[] = [
     listen: /dynamite/i,
     play: 'boom-goes-the-dynamite.mp3',
   },
+  {
+    keyword: 'developers',
+    description: ':developers: :developers: :developers:',
+    listen: /developers/i,
+    play: 'developers-developers-developers.mp3',
+  },
 ];
 
 export function attachResponses(app: App, sonos: Sonos): void {
