@@ -4,3 +4,4 @@ npm-debug.*
 build/
 *.swp
 .env
+.DS_Store

@@ -220,6 +220,12 @@ const burnResponses: Response[] = [
     listen: /developers/i,
     play: 'developers-developers-developers.mp3',
   },
+  {
+    keyword: 'boring',
+    description: 'Homer yelling "Boring!"',
+    listen: /boring/i,
+    play: 'boring.mp3',
+  },
 ];
 
 export function attachResponses(app: App, sonos: Sonos): void {
