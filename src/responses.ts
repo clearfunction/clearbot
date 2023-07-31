@@ -226,6 +226,54 @@ const burnResponses: Response[] = [
     listen: /boring/i,
     play: 'boring.mp3',
   },
+  {
+    keyword: 'past',
+    description: 'IT Crowd - Are You From the Past?',
+    listen: /past/i,
+    play: 'it-crowd-are-you-from-the-past.mp3',
+  },
+  {
+    keyword: 'stress',
+    description: 'IT Crowd - Over 80 million people have died of stress',
+    listen: /stress/i,
+    play: 'it-crowd-died-of-stress.mp3',
+  },
+  {
+    keyword: 'pants',
+    description: 'IT Crowd - Fix My Pants',
+    listen: /pants/i,
+    play: 'it-crowd-fix-my-pants.mp3',
+  },
+  {
+    keyword: 'hello',
+    description: 'IT Crowd - Hello, IT',
+    listen: /hello/i,
+    play: 'it-crowd-hello-it.mp3',
+  },
+  {
+    keyword: 'war',
+    description: 'IT Crowd - I am declaring war',
+    listen: /war/i,
+    play: 'it-crowd-i-am-declaring-war.mp3',
+  },
+  {
+    keyword: 'crazy',
+    description: "IT Crowd - It can't be done, you're crazy!",
+    listen: /crazy/i,
+    play: 'it-crowd-it-cant-be-done-youre-crazy.mp3',
+  },
+  {
+    keyword: 'easy',
+    description: "IT Crowd - It's easy to remember",
+    listen: /easy/i,
+    play: 'it-crowd-its-easy-to-remember.mp3',
+  },
+  {
+    keyword: 'turn',
+    description: 'IT Crowd - Have you tried turning it off and on again?',
+    listen: /turn/i,
+    play: 'it-crowd-turn-it-off-and-on-again.mp3',
+  },
 ];
 
 export function attachResponses(app: App, sonos: Sonos): void {
