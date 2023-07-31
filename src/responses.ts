@@ -12,7 +12,7 @@ const laughTracks = [
   'laugh-track-4.mp3',
 ];
 
-const burnResponses: Response[] = [
+export const burnResponses: Response[] = [
   {
     keyword: 'burn',
     description: 'A random sick burn! (with emoji)',
