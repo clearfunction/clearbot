@@ -274,6 +274,12 @@ export const burnResponses: Response[] = [
     listen: /turn/i,
     play: 'it-crowd-turn-it-off-and-on-again.mp3',
   },
+  {
+    keyword: 'scud',
+    description: 'Scud to STUD',
+    listen: /(scud|stud)/i,
+    play: 'scud-to-stud.m4a',
+  },
 ];
 
 export function attachResponses(app: App, sonos: Sonos): void {
