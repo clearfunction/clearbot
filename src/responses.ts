@@ -253,7 +253,7 @@ export const burnResponses: Response[] = [
   {
     keyword: 'war',
     description: 'IT Crowd - I am declaring war',
-    listen: /war/i,
+    listen: /\b(war)\b/i,
     play: 'it-crowd-i-am-declaring-war.mp3',
   },
   {
@@ -273,6 +273,12 @@ export const burnResponses: Response[] = [
     description: 'IT Crowd - Have you tried turning it off and on again?',
     listen: /turn/i,
     play: 'it-crowd-turn-it-off-and-on-again.mp3',
+  },
+  {
+    keyword: 'crickets',
+    description: 'Crickets chirping',
+    listen: /crickets/i,
+    play: 'crickets.mp3',
   },
   {
     keyword: 'scud',
