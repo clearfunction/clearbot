@@ -280,6 +280,12 @@ export const burnResponses: Response[] = [
     listen: /crickets/i,
     play: 'crickets.mp3',
   },
+  {
+    keyword: 'scud',
+    description: 'Scud to STUD',
+    listen: /(scud|stud)/i,
+    play: 'scud-to-stud.m4a',
+  },
 ];
 
 export function attachResponses(app: App, sonos: Sonos): void {
