@@ -7,7 +7,7 @@
   "author": "David Mohundro <david@clearfunction.com>",
   "license": "MIT",
   "dependencies": {
-    "@slack/bolt": "^3.12.1",
+    "@slack/bolt": "^3.16.0",
     "dotenv": "^16.0.3",
     "socket.io": "^4.5.3",
     "ts-node-dev": "^2.0.0",
