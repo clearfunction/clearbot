@@ -10,25 +10,24 @@
     "@slack/bolt": "^3.16.0",
     "dotenv": "^16.0.3",
     "socket.io": "^4.8.0",
-    "ts-node-dev": "^2.0.0",
     "typescript": "^5.0.4"
   },
   "scripts": {
     "lint": "eslint '**/*.ts'",
     "tsc": "tsc",
-    "dev": "ts-node-dev ./src/app.ts --respawn --transpileOnly",
+    "dev": "bun ./src/app.ts",
     "build:prod": "tsc && node ./build/app.js",
     "start:prod": "node ./build/app.js",
     "test": "vitest"
   },
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^5.40.1",
-    "@typescript-eslint/parser": "^5.40.1",
+    "@typescript-eslint/eslint-plugin": "^7.18.0",
+    "@typescript-eslint/parser": "^7.18.0",
     "eslint": "^8.25.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-import": "^2.26.0",
-    "prettier": "2.8.8",
-    "vitest": "^0.33.0"
+    "prettier": "3.3.3",
+    "vitest": "^2.1.3"
   }
 }

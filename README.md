@@ -20,6 +20,7 @@ sequenceDiagram
 
 - NPM
 - Node
+- Bun (for running locally, so we can run TypeScript directly)
 
 ## Running Locally
 
