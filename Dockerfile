@@ -1,20 +1,29 @@
-FROM node:14-alpine as builder
-
-ARG NODE_ENV=development
-ENV NODE_ENV=${NODE_ENV}
-
+FROM oven/bun:1 AS base
 WORKDIR /usr/src/app
 
-COPY package.json package-lock.json tsconfig.json ./
-RUN npm install
-COPY src ./
-RUN npm run tsc
+FROM base AS install
+RUN mkdir -p /temp/dev
+COPY package.json bun.lockb /temp/dev/
+RUN cd /temp/dev && bun install --frozen-lockfile
 
-FROM node:14-alpine
+RUN mkdir -p /temp/prod
+COPY package.json bun.lockb /temp/prod/
+RUN cd /temp/prod && bun install --frozen-lockfile --production
 
-WORKDIR /usr/src/app
-COPY --from=builder /usr/src/app/package.json package.json
-COPY --from=builder /usr/src/app/node_modules node_modules
-COPY --from=builder /usr/src/app/build build
+FROM base AS prerelease
+COPY --from=install /temp/dev/node_modules node_modules
+COPY . .
 
-CMD [ "npm", "run", "start:prod" ]
+ENV NODE_ENV=production
+RUN bun test
+RUN bun run build:prod
+
+FROM base AS release
+COPY --from=install /temp/prod/node_modules node_modules
+COPY --from=prerelease /usr/src/app/build/* build/
+COPY --from=prerelease /usr/src/app/package.json .
+
+# run the app
+USER bun
+EXPOSE 3000/tcp
+ENTRYPOINT [ "bun", "run", "start:prod" ]

@@ -4,14 +4,14 @@ import { Server, Socket } from 'socket.io';
 import { getHelpText } from './responses';
 import { randomFromArray } from './utils';
 
-type PlayUrl = {
+interface PlayUrl {
   url: string;
-};
+}
 
-type PlayText = {
+interface PlayText {
   text: string;
   volume: number;
-};
+}
 
 interface ServerToClientEvents {
   play_url: (data: PlayUrl) => void;
@@ -19,7 +19,6 @@ interface ServerToClientEvents {
   close: () => void;
 }
 
-// eslint-disable-next-line @typescript-eslint/no-empty-interface
 interface ClientToServerEvents {}
 
 export default class Sonos {
@@ -86,6 +85,7 @@ export default class Sonos {
     try {
       socket = randomFromArray(this.sockets);
     } catch (error) {
+      console.error(error);
       [socket] = this.sockets;
     }
     return socket;

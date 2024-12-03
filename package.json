@@ -2,32 +2,32 @@
   "name": "clearbot",
   "version": "1.0.0",
   "private": true,
+  "type": "module",
   "description": "Clear Function chat/slack bot",
-  "main": "index.js",
   "author": "David Mohundro <david@clearfunction.com>",
   "license": "MIT",
   "dependencies": {
     "@slack/bolt": "^3.16.0",
-    "dotenv": "^16.0.3",
     "socket.io": "^4.8.0",
-    "typescript": "^5.0.4"
+    "typescript": "^5.0.4",
+    "typescript-eslint": "^8.17.0"
   },
   "scripts": {
     "lint": "eslint '**/*.ts'",
-    "tsc": "tsc",
     "dev": "bun ./src/app.ts",
-    "build:prod": "tsc && node ./build/app.js",
-    "start:prod": "node ./build/app.js",
+    "build:prod": "bun build --compile --minify --sourceapp src/app.ts --outfile build/app",
+    "start:prod": "build/app",
     "test": "vitest"
   },
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^7.18.0",
-    "@typescript-eslint/parser": "^7.18.0",
-    "eslint": "^8.25.0",
+    "@types/bun": "latest",
+    "@typescript-eslint/eslint-plugin": "^8.17.0",
+    "@typescript-eslint/parser": "^8.17.0",
+    "eslint": "^9.16.0",
     "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-config-prettier": "^8.5.0",
+    "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-import": "^2.26.0",
-    "prettier": "3.3.3",
+    "prettier": "3.4.1",
     "vitest": "^2.1.3"
   }
 }

@@ -1,6 +1,4 @@
-interface RandomPlay {
-  (): string;
-}
+type RandomPlay = () => string;
 
 export interface Response {
   keyword: string;
