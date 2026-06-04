@@ -2,6 +2,7 @@ node_modules/**/*
 npm-debug.*
 *.orig.*
 build/
+*.bun-build
 *.swp
 .env
 .DS_Store
