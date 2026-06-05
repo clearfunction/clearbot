@@ -6,6 +6,7 @@
   "description": "Clear Function chat/slack bot",
   "author": "David Mohundro <david@clearfunction.com>",
   "license": "MIT",
+  "packageManager": "bun@1.3.14",
   "dependencies": {
     "@slack/bolt": "^4.7.3",
     "typescript": "^5.9.3",
@@ -16,7 +17,8 @@
     "dev": "bun ./src/app.ts",
     "build:prod": "bun build --compile --minify --sourceapp src/app.ts --outfile build/app",
     "start:prod": "build/app",
-    "test": "vitest"
+    "test": "vitest",
+    "test:cicd": "vitest run"
   },
   "devDependencies": {
     "@types/bun": "^1.3.14",
