@@ -46,10 +46,23 @@ logging: webapp
 open: logging
 	open https://$(APPNAME).azurewebsites.net
 
+# Run `websockets` and `appsettings` after `webapp` (post-deploy).
+# Socket Mode means SLACK_SIGNING_SECRET is no longer used; the bot needs
+# SLACK_APP_TOKEN and RELAY_TOKEN instead. WebSockets must be enabled on the
+# App Service (off by default) for the native Bun.serve relay connections.
+websockets:
+	az webapp config set -n $(APPNAME) -g $(RG) --web-sockets-enabled true
+
+appsettings:
+	az webapp config appsettings set -n $(APPNAME) -g $(RG) --settings \
+		SLACK_BOT_TOKEN="$$SLACK_BOT_TOKEN" \
+		SLACK_APP_TOKEN="$$SLACK_APP_TOKEN" \
+		RELAY_TOKEN="$$RELAY_TOKEN"
+
 logs:
 	az webapp log tail -n $(APPNAME) -g $(RG)
 
 rollback:
 	az group delete -n $(RG) -y
 
-.PHONY: build logs rollback open webapp rg plan all
+.PHONY: build logs rollback open webapp rg plan all websockets appsettings
