@@ -34,7 +34,7 @@ jobs:
           file: ./Dockerfile
 
   deploy:
-    runs-on: ubuntu-latest
+    runs-on: ubicloud-standard-2
     needs: build
     environment:
       name: 'production'
